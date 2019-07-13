@@ -163,9 +163,6 @@ return(val)
 data2_split <- function(inv1,inv2,res1,res2){
 
  
-res1 = res[1:d,]
-res2 = res[(d+1):(2*d),]
- 
 index = which.min(c( frob(inv1,res1) , frob(inv1,res2)))
 if( index==1 ){
   A = res1
@@ -192,11 +189,6 @@ return(list("A"=A  , "B"=B))
 #' @return val
 #' @export
 data3_split <- function(inv1,inv2,inv3,res1,res2,res3){
-
-
-res1 = res[1:d,]
-res2 = res[(d+1):(2*d),]
-res3 = res[((2*d)+1):(3*d),]
 
 index = which.min(c(frob(inv1,res1),frob(inv1,res2),frob(inv1,res3)))
 if( index == 1 ){
