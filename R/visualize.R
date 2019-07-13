@@ -79,16 +79,18 @@ a1neg = neg(partial , threshold)
 
 d = dim(partial)[1]	
 
+colnames(a1) = colnames(partial) 
+colnames(a1pos) = colnames(partial)
+colnames(a1neg) = colnames(partial) 
 	
-if(colnames(partial) == NULL){
+	
+if(is.null(colnames(partial))){
   colnames(a1) = c(1:d) 
   colnames(a1pos) = c(1:d)
   colnames(a1neg) = c(1:d)
 }	
 	
-colnames(a1) = colnames(partial) 
-colnames(a1pos) = colnames(partial)
-colnames(a1neg) = colnames(partial) 
+
  
  
 g1pos = graph_from_adjacency_matrix(a1pos, mode = "undirected", weighted=T, diag = FALSE, add.colnames = NULL, add.rownames = NA)
