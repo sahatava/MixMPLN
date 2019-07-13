@@ -78,10 +78,13 @@ a1pos = pos(partial , threshold)
 a1neg = neg(partial , threshold)
 
 d = dim(partial)[1]	
-colnames(a1) = c(1:d) 
-colnames(a1pos) = c(1:d)
-colnames(a1neg) = c(1:d)
+
 	
+if(colnames(partial) == NULL){
+  colnames(a1) = c(1:d) 
+  colnames(a1pos) = c(1:d)
+  colnames(a1neg) = c(1:d)
+}	
 	
 colnames(a1) = colnames(partial) 
 colnames(a1pos) = colnames(partial)
