@@ -149,7 +149,7 @@ out = compare(out_generate$real_precision  , out_MixMPLN$precision)
 M=as.matrix(read.csv("real_data.csv",sep=",",header=TRUE,row.names=1,check.names=FALSE))
 fviz_nbclust(M , MixMPLN ,"CV",k.max, method = c("silhouette"))
 out_MixMPLN = MixMPLN( M , K=2 , penalty="CV", init = "Random" , rep = 3)
-visualize(out_MixMPLN$partial[[1]] , threshold=0.5 )
+visualize(out_MixMPLN$partial[[1]] , threshold=0.3 )
 ```
 
 ## Publication
