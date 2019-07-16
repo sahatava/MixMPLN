@@ -141,14 +141,14 @@ out$ROC-------> area under the ROC
 ### Example on synthetic data
 ```
 out_generate = generate(K=2 , N=30 , d=30 , sp=0.8, type="orig")
-out_MixMPLN = MixMPLN( out_generate$M , K=2 , penalty="CV" , init = "Random" , rep = 3)
+out_MixMPLN = MixMPLN( out_generate$M , K=2 , penalty="CV" , init = "Random" , rep = 2)
 out = compare(out_generate$real_precision  , out_MixMPLN$precision)
 ``` 
 ### Example on real data
 ```
 M=as.matrix(read.csv("real_data.csv",sep=",",header=TRUE,row.names=1,check.names=FALSE))
 fviz_nbclust(M , MixMPLN ,"CV",k.max, method = c("silhouette"))
-out_MixMPLN = MixMPLN( M , K=2 , penalty="CV", init = "Random" , rep = 3)
+out_MixMPLN = MixMPLN( M , K=2 , penalty="CV", init = "Random" , rep = 2)
 visualize(out_MixMPLN$partial[[1]] , threshold=0.3 )
 ```
 
