@@ -80,8 +80,8 @@ mysnsp<-function(inv,res){
   if(NROW(inv)!=NCOL(inv) || NROW(res)!=NCOL(res) || NROW(inv)!=NROW(res)){
     stop ("Error in mysnsp function")
   }
-  Tc=(abs(cov2cor(as.matrix(inv))) >= thresh)
-  Pc=(abs(cov2cor(as.matrix(res))) >= thresh)
+  Tc=(abs(cov2cor(as.matrix(inv))) > thresh)
+  Pc=(abs(cov2cor(as.matrix(res))) > thresh)
   n=NROW(inv)
   TP=0
   FP=0
@@ -239,12 +239,12 @@ compare <- function(real , res){
 K = dim(as.matrix(res))[1]
 
 if(K == 1){
-out1 = frob(real,res)
-out2 = myfr2(real,res)
-out3 = myrms(real,res)
-out4 = mysnsp(real,res)$sn
-out5 = mysnsp(real,res)$sp
-out6 = myROC(real,res)
+out1 = frob(real[[1]],res[[1]])
+out2 = myfr2(real[[1]],res[[1]])
+out3 = myrms(real[[1]],res[[1]])
+out4 = mysnsp(real[[1]],res[[1]])$sn
+out5 = mysnsp(real[[1]],res[[1]])$sp
+out6 = myROC(real[[1]],res[[1]])
 }
 
 if(K == 2){
